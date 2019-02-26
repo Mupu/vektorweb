@@ -1,0 +1,111 @@
+buildscript {
+
+	ext {
+		//load spring application.properties
+		springProps = new Properties()
+		file("src/main/resources/application.properties").withInputStream { springProps.load(it) }
+
+		springBootVersion = '2.1.2.RELEASE'
+
+	}
+	repositories {
+		mavenCentral()
+		jcenter()
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+		flatDir {
+			dirs 'libs'
+		}
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
+		// needed for java 11
+		// classpath 'org.glassfish.jaxb:jaxb-runtime:2.3.1' // javax.xml.bind.JAXBException: Implementation of JAXB-API has not been found on module path or classpath.
+	}
+}
+
+plugins {
+	id 'nu.studer.jooq' version '3.0.2' // plugin to configure jooq more easily
+}
+
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'me.mupu'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	jcenter()
+	maven {
+		url "https://plugins.gradle.org/m2/"
+	}
+}
+
+dependencies {
+	// < spring >
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation('org.springframework.boot:spring-boot-starter-mail')
+
+//	compile group: 'nu.studer.jooq', name: 'nu.studer.jooq.gradle.plugin', version: '3.0.3', ext: 'pom'
+
+	// < jooq >
+    implementation 'org.jooq:jooq-codegen:3.11.9' // not needed. replaced for trial version
+	jooqRuntime 'mysql:mysql-connector-java' // for jooq code-gen
+	jooqRuntime fileTree(dir: 'libs', include: '*.jar')
+
+	// javax.xml.bind.JAXBException: Implementation of JAXB-API has not been found on module path or classpath.
+	// needed for java 11
+	// jooqRuntime group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.1'
+	// jooqRuntime group: 'com.sun.activation', name: 'javax.activation', version: '1.2.0'
+
+	implementation 'mysql:mysql-connector-java'
+	implementation group: 'com.microsoft.sqlserver', name: 'sqljdbc4', version: '4.0'
+
+	// < lombok >
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// < test >
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+	// < libs folder >
+	implementation fileTree(dir: 'libs', include: '*.jar')
+}
+
+// # jooq configuration #
+jooq {
+	webserver(sourceSets.main) {
+		jdbc {
+			driver = springProps.getProperty("spring.datasource.driver-class-name")
+			url = springProps.getProperty("spring.datasource.url")
+			user = springProps.getProperty("spring.datasource.username")
+			password = springProps.getProperty("spring.datasource.password")
+		}
+		generator {
+			database {
+				name = 'org.jooq.meta.mysql.MySQLDatabase'
+				inputSchema = 'vektorweb' // database name
+			}
+			generate {
+				relations = true
+				deprecated = false
+				records = true
+				immutablePojos = false
+				fluentSetters = true
+			}
+			target {
+				directory = 'src/main/generated'
+//				packageName = 'vektorweb'
+			}
+		}
+	}
+}
