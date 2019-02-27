@@ -2,7 +2,6 @@ package me.mupu.vektorweb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class ServerApplication {
@@ -11,9 +10,9 @@ public class ServerApplication {
         /**
          * DISABLE JOOQ BANNER  -Dorg.jooq.no-logo=true
          */
-        System.getProperties().setProperty("org.jooq.no-logo", "true");
+        //System.getProperties().setProperty("org.jooq.no-logo", "true");
 
-		ConfigurableApplicationContext context = SpringApplication.run(ServerApplication.class, args);
+		SpringApplication.run(ServerApplication.class, args);
 	}
 
     // redirect http to https page

@@ -1,9 +1,8 @@
-package me.mupu.vektorweb.controller.forgotCredentials;
+package me.mupu.vektorweb.presentation.controller.forgotCredentials;
 
-import me.mupu.vektorweb.dao.User;
-import me.mupu.vektorweb.model.CustomUser;
+import me.mupu.vektorweb.persistence.dao.User;
+import me.mupu.vektorweb.CustomUser;
 import me.mupu.vektorweb.service.EmailService;
-import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;

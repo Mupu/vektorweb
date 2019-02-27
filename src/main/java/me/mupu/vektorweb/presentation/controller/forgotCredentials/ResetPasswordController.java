@@ -1,13 +1,11 @@
-package me.mupu.vektorweb.controller.forgotCredentials;
+package me.mupu.vektorweb.presentation.controller.forgotCredentials;
 
 import me.mupu.vektorweb.HashPasswordEncoder;
-import me.mupu.vektorweb.dao.User;
-import me.mupu.vektorweb.form.ResetPasswordForm;
-import me.mupu.vektorweb.model.CustomUser;
+import me.mupu.vektorweb.persistence.dao.User;
+import me.mupu.vektorweb.presentation.form.ResetPasswordForm;
+import me.mupu.vektorweb.CustomUser;
 import me.mupu.vektorweb.service.CustomUserService;
-import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import javax.validation.Valid;
 
 @Controller

@@ -52,22 +52,26 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation('org.springframework.boot:spring-boot-starter-mail')
-
-//	compile group: 'nu.studer.jooq', name: 'nu.studer.jooq.gradle.plugin', version: '3.0.3', ext: 'pom'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation "org.flywaydb:flyway-core:5.2.4"
 
 	// < jooq >
-    implementation 'org.jooq:jooq-codegen:3.11.9' // not needed. replaced for trial version
-	jooqRuntime 'mysql:mysql-connector-java' // for jooq code-gen
-	jooqRuntime fileTree(dir: 'libs', include: '*.jar')
+//	compile group: 'nu.studer.jooq', name: 'nu.studer.jooq.gradle.plugin', version: '3.0.3', ext: 'pom'
+//    implementation 'org.jooq:jooq-codegen:3.11.9' // not needed. replaced for trial version
+//	jooqRuntime 'mysql:mysql-connector-java' // for jooq code-gen
+//	jooqRuntime fileTree(dir: 'libs', include: '*.jar')
 
 	// javax.xml.bind.JAXBException: Implementation of JAXB-API has not been found on module path or classpath.
 	// needed for java 11
 	// jooqRuntime group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.1'
 	// jooqRuntime group: 'com.sun.activation', name: 'javax.activation', version: '1.2.0'
 
+//	implementation 'com.h2database:h2'
+	
+	// < SQL Driver >
 	implementation 'mysql:mysql-connector-java'
-	implementation group: 'com.microsoft.sqlserver', name: 'sqljdbc4', version: '4.0'
+	implementation 'com.microsoft.sqlserver:sqljdbc4:4.0'
 
 	// < lombok >
 	compileOnly 'org.projectlombok:lombok'

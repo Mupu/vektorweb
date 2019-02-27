@@ -1,4 +1,4 @@
-package me.mupu.vektorweb.form;
+package me.mupu.vektorweb.presentation.form;
 
 import lombok.Getter;
 import lombok.Setter;

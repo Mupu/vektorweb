@@ -1,6 +1,6 @@
-package me.mupu.vektorweb.controller;
+package me.mupu.vektorweb.presentation.controller;
 
-import me.mupu.vektorweb.model.CustomUser;
+import me.mupu.vektorweb.CustomUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

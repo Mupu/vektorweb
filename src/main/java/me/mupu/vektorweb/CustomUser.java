@@ -1,7 +1,7 @@
-package me.mupu.vektorweb.model;
+package me.mupu.vektorweb;
 
 import lombok.Getter;
-import me.mupu.vektorweb.dao.User;
+import me.mupu.vektorweb.persistence.dao.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

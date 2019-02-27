@@ -1,7 +1,7 @@
-package me.mupu.vektorweb.controller;
+package me.mupu.vektorweb.presentation.controller;
 
-import me.mupu.vektorweb.form.RegistrationForm;
-import me.mupu.vektorweb.model.CustomUser;
+import me.mupu.vektorweb.presentation.form.RegistrationForm;
+import me.mupu.vektorweb.CustomUser;
 import me.mupu.vektorweb.service.CustomUserService;
 import me.mupu.vektorweb.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package me.mupu.vektorweb.service;
 
-import me.mupu.vektorweb.dao.User;
+import me.mupu.vektorweb.persistence.dao.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

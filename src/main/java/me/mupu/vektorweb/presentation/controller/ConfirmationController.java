@@ -1,7 +1,7 @@
-package me.mupu.vektorweb.controller;
+package me.mupu.vektorweb.presentation.controller;
 
-import me.mupu.vektorweb.dao.User;
-import me.mupu.vektorweb.model.CustomUser;
+import me.mupu.vektorweb.persistence.dao.User;
+import me.mupu.vektorweb.CustomUser;
 import me.mupu.vektorweb.service.CustomUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

@@ -1,6 +1,5 @@
-package me.mupu.vektorweb.config;
+package me.mupu.vektorweb;
 
-import me.mupu.vektorweb.HashPasswordEncoder;
 import me.mupu.vektorweb.service.CustomUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

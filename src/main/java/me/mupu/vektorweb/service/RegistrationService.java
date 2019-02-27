@@ -1,23 +1,21 @@
 package me.mupu.vektorweb.service;
 
 import me.mupu.vektorweb.HashPasswordEncoder;
-import me.mupu.vektorweb.dao.User;
-import me.mupu.vektorweb.form.RegistrationForm;
-import org.jooq.DSLContext;
+import me.mupu.vektorweb.persistence.dao.User;
+import me.mupu.vektorweb.presentation.form.RegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.UUID;
 
 @Service("registrationService")
 public class RegistrationService {
 
-    @Autowired
-    private DSLContext dslContext;
-
+//    @Autowired
+//    private DSLContext dslContext;
+//
     @Autowired
     private HashPasswordEncoder passwordEncoder;
 
