@@ -10,7 +10,7 @@ public class ServerApplication {
         /**
          * DISABLE JOOQ BANNER  -Dorg.jooq.no-logo=true
          */
-        //System.getProperties().setProperty("org.jooq.no-logo", "true");
+        System.getProperties().setProperty("org.jooq.no-logo", "true");
 
 		SpringApplication.run(ServerApplication.class, args);
 	}

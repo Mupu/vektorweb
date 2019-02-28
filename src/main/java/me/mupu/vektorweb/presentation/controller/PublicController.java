@@ -41,7 +41,7 @@ public class PublicController {
 
         mv.addObject("b64", Base64.getEncoder());
 
-
+//        context.execute("insert into user (confirmation_token, email, reset_password_token, username) values ('yolo', 'yolo', 'yolo', 'yolo')");
 //        Session s = getSession();
 //        var u = new User();
 //        u.setUsername("test");
