@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class User extends BaseEntitiy {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userID")
     private long id;
 
