@@ -2,6 +2,7 @@ package me.mupu.vektorweb.presentation.controller;
 
 import me.mupu.vektorweb.CustomUser;
 import org.hibernate.Session;
+import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,8 @@ public class PublicController {
     @Autowired
     private EntityManager entityManager;
 
+    @Autowired
+    private DSLContext context;
 
     private Session getSession() {
         return entityManager.unwrap(Session.class);

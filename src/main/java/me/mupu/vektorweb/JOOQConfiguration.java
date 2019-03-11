@@ -34,7 +34,7 @@ public class JOOQConfiguration {
 
     private DataSource getMySQLDataSource() {
         MysqlDataSource mysqlDS = new MysqlDataSource();
-        mysqlDS.setURL(URL);
+        mysqlDS.setURL(URL.replace("?", "/" + databaseName + "?"));
         mysqlDS.setUser(user);
         mysqlDS.setPassword(password);
         mysqlDS.setDatabaseName(databaseName);
